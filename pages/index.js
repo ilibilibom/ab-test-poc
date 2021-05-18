@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
-export default function Home({ isTestVariant }) {
+export default function Home({ isExperiment }) {
   return (
     <div className={styles.container}>
-      {isTestVariant ? (
+      {isExperiment ? (
         <h1 style={{ color: '#ffdf59', fontSize: 82 }}>Test</h1>
       ) : (
         <h1 style={{ color: '#0070f3', fontSize: 82 }}>Control</h1>
@@ -14,10 +14,10 @@ export default function Home({ isTestVariant }) {
 }
 
 export async function getServerSideProps({ req }) {
-  const {'is-test-variant': isTestVariant} = req.headers;
+  const {'is-experiment': isExperiment} = req.headers;
   return {
     props: {
-      isTestVariant: isTestVariant ? isTestVariant : null,
+      isExperiment: isExperiment ? isExperiment : null,
     },
   };
 }
