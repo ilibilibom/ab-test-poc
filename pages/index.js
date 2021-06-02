@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css';
 export default function Home({ testVariantId }) {
   return (
     <div className={styles.container}>
-      {testVariantId === '1' ? (
+      {testVariantId === 'experiment' ? (
         <h1 style={{ color: '#ffdf59', fontSize: 82 }}>Test</h1>
       ) : (
         <h1 style={{ color: '#0070f3', fontSize: 82 }}>Control</h1>
