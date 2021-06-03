@@ -14,7 +14,7 @@ export default function Blog({ testVariantId }) {
 
 export async function getServerSideProps({ req }) {
   const {'test-variant-id': testVariantId} = req.headers;
-  console.log('req.headers',req.headers);
+  console.log('testVariantId',testVariantId);
   return {
     props: {
       testVariantId: testVariantId ? testVariantId : null,
