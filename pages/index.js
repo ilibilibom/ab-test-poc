@@ -15,7 +15,7 @@ export default function Home({ testVariantId }) {
 
 export async function getServerSideProps({ req }) {
   const {'test-variant-id': testVariantId} = req.headers;
-  console.log('req.headers',req.headers);
+  console.log('test-variant-id',testVariantId);
   return {
     props: {
       testVariantId: testVariantId ? testVariantId : null,
