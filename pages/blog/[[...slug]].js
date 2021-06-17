@@ -1,7 +1,7 @@
 import styles from '../../styles/Home.module.css';
 
-export default function Blog({slug}) {
-  const backColor = getRandomColor();
+export default function Blog({slug, testVariant}) {
+  const backColor = ( testVariant === 'consultation_cta_hp_jan21' ? 'purple' : ( testVariant === 'regular_hp_jan21' ? 'blue' : 'black' ));
   return (
     <div className={styles.container}>
       <div style={{ color: 'white', background: backColor, fontSize: 25, padding: 50 }}>
@@ -12,10 +12,11 @@ export default function Blog({slug}) {
 }
 
 export async function getServerSideProps( { params, req: {headers} } ) {
-  console.log('headers',headers['test-variant-name']);
+  const testVariant = headers['test-variant-name']
   const { slug } = params || '';
     return {
     props: {
+      testVariant,
       slug
     },
   };
