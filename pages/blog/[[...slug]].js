@@ -12,7 +12,7 @@ export default function Blog({slug}) {
 }
 
 export async function getServerSideProps( { params, req: {headers} } ) {
-  console.log('headers',headers.pragma);
+  console.log('headers',headers['test-variant-name']);
   const { slug } = params || '';
     return {
     props: {
