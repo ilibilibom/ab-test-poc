@@ -1,7 +1,7 @@
 import styles from '../../styles/Home.module.css';
 
 export default function Blog({slug, testVariant}) {
-  const backColor = ( testVariant === 'consultation_cta_hp_jan21' ? 'purple' : ( testVariant === 'regular_hp_jan21' ? 'blue' : 'black' ));
+  const backColor = ( testVariant === 'ps_automation_control' ? 'purple' : ( testVariant === 'ps_automation_control' ? 'blue' : 'black' ));
   return (
     <div className={styles.container}>
       <div style={{ color: 'white', background: backColor, fontSize: 25, padding: 50 }}>
