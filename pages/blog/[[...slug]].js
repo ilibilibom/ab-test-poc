@@ -13,7 +13,7 @@ export default function Blog({slug, testVariant}) {
 
 export async function getServerSideProps( { params, req: {headers} } ) {
   console.log('headers',headers);
-  const testVariant = headers['test-variant-name']
+  const testVariant = headers['test-variant-name']['variant_name']
   const { slug } = params || '';
     return {
     props: {
