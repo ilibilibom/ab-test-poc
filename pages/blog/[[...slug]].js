@@ -12,8 +12,8 @@ export default function Blog({slug, variant_name}) {
 }
 
 export async function getServerSideProps( { params, req: {headers} } ) {
-  console.log("headers['test-variant-name']",JSON.parse(headers['test-variant-name']));
-  const { variant_name } = JSON.parse(headers['test-variant-name'])
+  const { variant_name, variant_id } = headers['test-variant-name'] ? JSON.parse(headers['test-variant-name']) : null;
+  console.log('variants', variant_name, variant_id);
   const { slug } = params || '';
     return {
     props: {
