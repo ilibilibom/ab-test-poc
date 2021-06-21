@@ -1,7 +1,7 @@
 import styles from '../../styles/Home.module.css';
 
-export default function Blog({slug, testVariant}) {
-  const backColor = ( testVariant === 'ps_automation_control' ? 'purple' : ( testVariant === 'ps_automation_variant' ? 'blue' : 'black' ));
+export default function Blog({slug, variant_name}) {
+  const backColor = ( variant_name === 'ps_automation_control' ? 'purple' : ( variant_name === 'ps_automation_variant' ? 'blue' : 'black' ));
   return (
     <div className={styles.container}>
       <div style={{ color: 'white', background: backColor, fontSize: 25, padding: 50 }}>
@@ -12,12 +12,12 @@ export default function Blog({slug, testVariant}) {
 }
 
 export async function getServerSideProps( { params, req: {headers} } ) {
-  console.log("headers['test-variant-name']",JSON.parse(headers['test-variant-name']).variant_name);
-  const testVariant = JSON.parse(headers['test-variant-name']).variant_name
+  console.log("headers['test-variant-name']",JSON.parse(headers['test-variant-name']));
+  const { variant_name } = JSON.parse(headers['test-variant-name'])
   const { slug } = params || '';
     return {
     props: {
-      testVariant,
+      variant_name,
       slug
     },
   };
