@@ -17,7 +17,7 @@ export async function getServerSideProps( { params, req: {headers} } ) {
   const { slug } = params || '';
     return {
     props: {
-      ab_test_variant_name: null,
+      ab_test_variant_name,
       slug
     },
   };
