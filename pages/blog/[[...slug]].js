@@ -1,7 +1,7 @@
 import styles from '../../styles/Home.module.css';
 
 export default function Blog({slug, ab_test_variant_name}) {
-  const backColor = ( ab_test_variant_name === 'ps_automation_control' ? 'purple' : ( ab_test_variant_name === 'ps_automation_variant' ? 'blue' : 'black' ));
+  const backColor = ( ab_test_variant_name === 'test_lambda_control' ? 'purple' : ( ab_test_variant_name === 'test_lambda_variant' ? 'blue' : 'black' ));
   return (
     <div className={styles.container}>
       <div style={{ color: 'white', background: backColor, fontSize: 25, padding: 50 }}>
@@ -13,8 +13,7 @@ export default function Blog({slug, ab_test_variant_name}) {
 
 export async function getServerSideProps( { params, req: {headers} } ) {
   const { ab_test_variant_name, ab_test_variant_id } = headers['test-variant-name'] ? JSON.parse(headers['test-variant-name']) : null;
-  console.log("headers['test-variant-name']", headers['test-variant-name']);
-  // console.log('variants', ab_test_variant_name, ab_test_variant_id);
+  console.log("headers", headers['test-variant-name']);
   const { slug } = params || '';
     return {
     props: {
